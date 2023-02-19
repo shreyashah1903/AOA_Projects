@@ -8,23 +8,26 @@ def countHouses(schedule, n):
   m = len(schedule)
 
   h = []
-  for i in range(m):
-    [startTime, endTime] = schedule[i]
-    heappush(h, [endTime, startTime])
+  # for i in range(m):
+  #   [startTime, endTime] = schedule[i]
+  #   heappush(h, [endTime, startTime])
 
   i = 0
   j = 0
   houses = 0
   while i <= n:
-    if j >= m: break
-    [endTime, startTime] = heappop(h)
-    if startTime <= n: i = startTime
-    print("{} {}",startTime,endTime)
-    if i >= startTime  and i <= endTime:
-      houses += 1
-    j += 1
+    while j < m:
+      [startTime, endTime] = schedule[j]
+      if i >= startTime  and i <= endTime:
+        heappush(h, [endTime - startTime, startTime, endTime])
+        j += 1
+      else: break
+    if len(h) > 0:
+      [_, startTime, endTime] = heappop(h)
+      print("Considering index j -{} day -{}".format(j,i))
+      if i >= startTime  and i <= endTime:
+        houses += 1
     i += 1
-    print("ha {}" , houses)
   return houses
 
 
