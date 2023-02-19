@@ -9,24 +9,24 @@ def count_houses(schedule, n):
 
   h = []
   # for i in range(m):
-  #   [startTime, endTime] = schedule[i]
-  #   heappush(h, [endTime, startTime])
+  #   [start_day, end_day] = schedule[i]
+  #   heappush(h, [end_day, start_day])
 
   i = 0
   j = 0
   houses = 0
   while i <= n:
     while j < m:
-      [startTime, endTime] = schedule[j]
-      if i >= startTime  and i <= endTime:
-        heappush(h, [endTime - startTime, startTime, endTime])
+      [start_day, end_day] = schedule[j]
+      if i >= start_day  and i <= end_day:
+        heappush(h, [end_day - start_day, start_day, end_day])
         j += 1
       else: break
     if len(h) > 0:
-      [_, startTime, endTime] = heappop(h)
+      [_, start_day, end_day] = heappop(h)
       print("Considering index j {} day {}".format(j,i))
-      if i >= startTime  and i <= endTime:
-        print("Painted house index {} with (startTime, endTime) {}-{},  on day {}".format(j, startTime, endTime, i))
+      if i >= start_day  and i <= end_day:
+        print("Painted house index {} with (start_day, end_day) {}-{},  on day {}".format(j, start_day, end_day, i))
         houses += 1
     i += 1
   return houses
@@ -35,7 +35,7 @@ def count_houses(schedule, n):
 n, m = map(int, input().split())
 schedule = []
 for i in range(m):
-  startTime, endTime = map(int, input().split())
-  schedule.append([startTime, endTime])
+  start_day, end_day = map(int, input().split())
+  schedule.append([start_day, end_day])
 noOfHouses = count_houses(schedule, n)
 print(noOfHouses)
