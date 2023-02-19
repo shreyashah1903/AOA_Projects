@@ -1,0 +1,50 @@
+# Test case 1: No available houses
+10 0
+
+# Test case 2: One house available all days
+10 1
+0 10
+
+# Test case 3: Multiple houses available all days
+10 3
+0 10
+0 10
+0 10
+
+# Test case 4: Houses with no overlap
+10 5
+0 2
+3 5
+6 7
+8 9
+10 11
+
+# Test case 5: Houses with overlap, but all days covered
+10 3
+0 3
+1 4
+2 5
+
+# Test case 6: Houses with overlap, but not all days covered
+10 3
+0 3
+1 4
+5 7
+
+# Test case 7: Random houses
+10 5
+0 1
+2 4
+4 6
+5 7
+8 10
+
+# Test case 8: Maximum values
+100000 100000
+0 1
+1 2
+2 3
+...
+99997 99998
+99998 99999
+99999 100000

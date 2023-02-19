@@ -26,7 +26,7 @@ def count_houses(schedule, n):
       [_, startTime, endTime] = heappop(h)
       print("Considering index j {} day {}".format(j,i))
       if i >= startTime  and i <= endTime:
-        print("Painted house {}-{} on day {}".format(startTime, endTime, i))
+        print("Painted house index {} with (startTime, endTime) {}-{},  on day {}".format(j, startTime, endTime, i))
         houses += 1
     i += 1
   return houses
