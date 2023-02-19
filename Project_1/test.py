@@ -10,5 +10,5 @@ class Tests(unittest.TestCase):
         schedule = [[1, 3],
                     [2, 5],
                     [5, 5]]
-        noOfHouses = countHouses(schedule, days, houses)
+        noOfHouses = count_houses(schedule, days, houses)
         print(noOfHouses)

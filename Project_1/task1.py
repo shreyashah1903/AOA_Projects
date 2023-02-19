@@ -5,7 +5,7 @@ the earliest.
 Strategy 1 should be done in Theta(n) time.
 """
 
-def countHouses(schedule, n, m):
+def count_houses(schedule, n, m):
   j = 0
   houses = 0
   for i in range(1, n+1):

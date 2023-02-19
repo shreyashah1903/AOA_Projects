@@ -4,7 +4,7 @@ that are available that day, paint the house that started being available the la
 """
 from heapq import heappush, heappop
 
-def countHouses(schedule, n):
+def count_houses(schedule, n):
   m = len(schedule)
 
   h = []
@@ -24,8 +24,9 @@ def countHouses(schedule, n):
       else: break
     if len(h) > 0:
       [_, startTime, endTime] = heappop(h)
-      print("Considering index j -{} day -{}".format(j,i))
+      print("Considering index j {} day {}".format(j,i))
       if i >= startTime  and i <= endTime:
+        print("Painted house {}-{} on day {}".format(startTime, endTime, i))
         houses += 1
     i += 1
   return houses
@@ -36,5 +37,5 @@ schedule = []
 for i in range(m):
   startTime, endTime = map(int, input().split())
   schedule.append([startTime, endTime])
-noOfHouses = countHouses(schedule, n)
+noOfHouses = count_houses(schedule, n)
 print(noOfHouses)
