@@ -11,4 +11,4 @@ class Tests(unittest.TestCase):
                     [2, 5],
                     [5, 5]]
         noOfHouses = count_houses(schedule, days, houses)
-        print(noOfHouses)
+        print("Num of houses painted:", noOfHouses)
