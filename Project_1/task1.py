@@ -10,13 +10,21 @@ def count_houses(schedule, n, m):
   houses = 0
   for i in range(1, n+1):
     if j >= m: break
-    print("Considering index j {} day {}".format(j,i))
+    # print("Considering index j {} day {}".format(j,i))
     [start_day, end_day] = schedule[j]
     if i >= start_day  and i <= end_day:
-      print("Painted house index {} with (start_day, end_day) {}-{},  on day {}".format(j, start_day, end_day, i))
+      # print("Painted house index {} with (start_day, end_day) {}-{},  on day {}".format(j, start_day, end_day, i))
       houses += 1
     elif end_day <= n and i <= end_day: continue
     j +=1
   return houses
+
+# n, m = map(int, input().split())
+# schedule = []
+# for i in range(m):
+#   startTime, endTime = map(int, input().split())
+#   schedule.append([startTime, endTime])
+# noOfHouses = count_houses(schedule, n, m)
+# print(noOfHouses)
 
 
