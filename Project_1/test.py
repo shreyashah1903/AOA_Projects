@@ -1,5 +1,5 @@
 from task1 import *
-
+from task2 import *
 
 def test_strategy1():
     with open("test/file1.txt", "r") as file:
@@ -25,12 +25,13 @@ def test_strategy1():
                     index += 1
 
                 print("Test case", case)
-                print("n =", n)
-                print("m =", m)
-                print("Houses =", data)
+                print("days =", n)
+                print("houses =", m)
+                print("House availability =", data)
 
-                no_of_houses = count_houses(data, n, m)
-                print("Num of houses painted:", no_of_houses)
+                painted_houses = count_houses_strategy2(data, n, m)
+                print("Num of houses painted:", len(painted_houses))
+                print("Houses painted:", painted_houses)
                 print()
 
                 case += 1
