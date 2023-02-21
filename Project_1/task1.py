@@ -5,6 +5,9 @@ the earliest.
 Strategy 1 should be done in Theta(n) time.
 """
 
+#TODO 1. Make Strat 1 and 3 consistent with 2 and 4(return indices of houses)
+# 2. Use meaningful names
+# 3. Call these from test.py
 def count_houses(schedule, n, m):
   j = 0
   houses = 0
