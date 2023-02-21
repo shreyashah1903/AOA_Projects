@@ -1,5 +1,6 @@
 from task1 import *
 from task2 import *
+from task4 import *
 
 def test_strategy1():
     with open("test/file1.txt", "r") as file:
@@ -29,7 +30,13 @@ def test_strategy1():
                 print("houses =", m)
                 print("House availability =", data)
 
+                print("\nStrategy 2")
                 painted_houses = count_houses_strategy2(data, n, m)
+                print("Num of houses painted:", len(painted_houses))
+                print("Houses painted:", painted_houses)
+
+                print("\nStrategy 4")
+                painted_houses = count_houses_strategy4(data, n, m)
                 print("Num of houses painted:", len(painted_houses))
                 print("Houses painted:", painted_houses)
                 print()
@@ -41,6 +48,7 @@ def test_strategy1():
             else:
                 # move to next line
                 i += 1
+
 
 if __name__ == '__main__':
     test_strategy1()
