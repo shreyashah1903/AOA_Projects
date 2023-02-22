@@ -20,7 +20,7 @@ def count_houses_strategy4(schedule, days, houses):
 
         # Paint the house with the earliest end date
         if available_houses:
-            end, start, index = heapq.heappop(available_houses)
-            painted_houses[index] = start, end
+            end, start, index1 = heapq.heappop(available_houses)
+            painted_houses[index1] = start, end
 
     return painted_houses
