@@ -1,5 +1,6 @@
-# Test case 1: No available houses
-10 0
+# Test case 1: Case with one available house
+5 1
+1 3
 
 # Test case 2: One house available all days
 10 1
