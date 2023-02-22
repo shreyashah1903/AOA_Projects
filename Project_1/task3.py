@@ -4,31 +4,27 @@ that are available that day, paint the house that started being available the la
 """
 from heapq import heappush, heappop
 
-def count_houses(schedule, n, m):
-  h = []
-  # for i in range(m):
-  #   [start_day, end_day] = schedule[i]
-  #   heappush(h, [end_day, start_day])
+# TC : O(n + m log(m))
+def count_houses_strategy3(schedule, days, houses):
+    painted_houses = {}
+    available_houses = []
 
-  i = 0
-  j = 0
-  houses = 0
-  while i <= n:
-    while j < m:
-      [start_day, end_day] = schedule[j]
-      if i >= start_day  and i <= end_day:
-        heappush(h, [end_day - start_day, start_day, end_day])
-        j += 1
-      else: break
-    if len(h) > 0:
-      [_, start_day, end_day] = heappop(h)
-      print("Considering index j {} day {}".format(j,i))
-      if i >= start_day  and i <= end_day:
-        print("Painted house index {} with (start_day, end_day) {}-{},  on day {}".format(j, start_day, end_day, i))
-        houses += 1
-    i += 1
-  return houses
+    index = 0
+    for day in range(1, days + 1):
 
+        # Paint houses available on the current day
+        while index < len(schedule) and schedule[index][0] <= day <= schedule[index][1]:
+            start, end = schedule[index]
+            # Maintain maxheap of unpainted houses by end date
+            heappush(available_houses, (end - start, start, end, index))
+            index += 1
+
+        # Paint the house with the latest end date
+        if available_houses:
+            _, start, end, index1 = heappop(available_houses)
+            painted_houses[index1] = start, end
+
+    return painted_houses
 
 # n, m = map(int, input().split())
 # schedule = []

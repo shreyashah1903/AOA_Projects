@@ -5,22 +5,25 @@ the earliest.
 Strategy 1 should be done in Theta(n) time.
 """
 
-#TODO 1. Make Strat 1 and 3 consistent with 2 and 4(return indices of houses)
-# 2. Use meaningful names
-# 3. Call these from test.py
-def count_houses(schedule, n, m):
-  j = 0
-  houses = 0
-  for i in range(1, n+1):
-    if j >= m: break
-    # print("Considering index j {} day {}".format(j,i))
-    [start_day, end_day] = schedule[j]
-    if i >= start_day  and i <= end_day:
-      # print("Painted house index {} with (start_day, end_day) {}-{},  on day {}".format(j, start_day, end_day, i))
-      houses += 1
-    elif end_day <= n and i <= end_day: continue
-    j +=1
-  return houses
+
+# TC : O(n)
+def count_houses_strategy1(schedule, days, houses):
+    painted_houses = {}
+    index = 0
+    for day in range(1, days + 1):
+        if index >= houses: break
+        [start, end] = schedule[index]
+
+        while day > schedule[index][1]:
+            index += 1
+            [start, end] = schedule[index]
+
+        # Paint the house
+        if start <= day <= end:
+            painted_houses[index] = start, end
+            index += 1
+
+    return painted_houses
 
 # n, m = map(int, input().split())
 # schedule = []
@@ -29,5 +32,3 @@ def count_houses(schedule, n, m):
 #   schedule.append([startTime, endTime])
 # noOfHouses = count_houses(schedule, n, m)
 # print(noOfHouses)
-
-
