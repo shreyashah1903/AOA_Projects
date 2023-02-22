@@ -1,6 +1,6 @@
 """
 Strat2: Iterate over each day starting from day 1 . . . n. For each day, among the unpainted houses
-that are available that day, paint the house that started being available the latest.(i.e. choose late end date first)
+that are available that day, paint the house that started being available the latest.(i.e. choose late start date first)
 """
 import heapq
 
@@ -17,12 +17,13 @@ def count_houses_strategy2(schedule, days, houses):
         while index < len(schedule) and schedule[index][0] <= day <= schedule[index][1]:
             start, end = schedule[index]
             # Maintain maxheap of unpainted houses by end date
-            heapq.heappush(available_houses, (-end, start, index))
+            heapq.heappush(available_houses, (-start, end, index))
             index += 1
 
         # Paint the house with the latest end date
         if available_houses:
-            end, start, index1 = heapq.heappop(available_houses)
-            painted_houses[index1] = start, -end
+            start, end, index1 = heapq.heappop(available_houses)
+            if start <= day <= end:
+                painted_houses[index1] = -start, end, day
 
     return painted_houses

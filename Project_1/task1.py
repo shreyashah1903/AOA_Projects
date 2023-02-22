@@ -14,7 +14,7 @@ def count_houses_strategy1(schedule, days, houses):
         if index >= houses: break
         [start, end] = schedule[index]
 
-        while day > schedule[index][1]:
+        while index < len(schedule) - 1 and day > schedule[index][1]:
             index += 1
             [start, end] = schedule[index]
 

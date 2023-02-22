@@ -22,7 +22,8 @@ def count_houses_strategy3(schedule, days, houses):
         # Paint the house with the latest end date
         if available_houses:
             _, start, end, index1 = heappop(available_houses)
-            painted_houses[index1] = start, end
+            if start <= day <= end:
+                painted_houses[index1] = start, end, day
 
     return painted_houses
 
