@@ -9,21 +9,23 @@ def count_houses_strategy3(schedule, days, houses):
     painted_houses = {}
     available_houses = []
 
+    house_index = 0
     index = 0
     for day in range(1, days + 1):
 
         # Paint houses available on the current day
-        while index < len(schedule) and schedule[index][0] <= day <= schedule[index][1]:
-            start, end = schedule[index]
+        while house_index < len(schedule) and schedule[house_index][0] <= day <= schedule[house_index][1]:
+            start, end = schedule[house_index]
             # Maintain maxheap of unpainted houses by end date
-            heappush(available_houses, (end - start, start, end, index))
-            index += 1
+            heappush(available_houses, (end - start, start, end, house_index))
+            house_index += 1
 
         # Paint the house with the latest end date
         if available_houses:
             _, start, end, index1 = heappop(available_houses)
             if start <= day <= end:
-                painted_houses[index1] = start, end, day
+                painted_houses[index] = start, end, day, index1
+                index += 1
 
     return painted_houses
 
