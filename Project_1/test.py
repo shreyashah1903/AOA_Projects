@@ -37,21 +37,21 @@ def test_strategies():
                     print("\nStrategy 1")
                     painted_houses = count_houses_strategy1(data, n, m)
                     print("Num of houses painted:", len(painted_houses))
-                    for j in range(0, len(painted_houses)):
+                    for j in range(len(painted_houses)):
                         start, end, day, index = painted_houses[j]
                         print("Day {}, house {} painted with schedule {} {}".format(day, index, start, end))
 
                     print("\nStrategy 2")
                     painted_houses = count_houses_strategy2(data, n, m)
                     print("Num of houses painted:", len(painted_houses))
-                    for j in range(0, len(painted_houses)):
+                    for j in range(len(painted_houses)):
                         start, end, day, index = painted_houses[j]
                         print("Day {}, house {} painted with schedule {} {}".format(day, index, start, end))
 
                     print("\nStrategy 3")
                     painted_houses = count_houses_strategy3(data, n, m)
                     print("Num of houses painted:", len(painted_houses))
-                    for j in range(0, len(painted_houses)):
+                    for j in range(len(painted_houses)):
                         start, end, day, index = painted_houses[j]
                         print("Day {}, house {} painted with schedule {} {}".format(day, index, start, end))
 
@@ -59,7 +59,7 @@ def test_strategies():
                     painted_houses = count_houses_strategy4(data, n, m)
                     print("Num of houses painted:", len(painted_houses))
 
-                    for j in range(0, len(painted_houses)):
+                    for j in range(len(painted_houses)):
                         start, end, day, index = painted_houses[j]
                         print("Day {}, house {} painted with schedule {} {}".format(day, index, start, end))
 
