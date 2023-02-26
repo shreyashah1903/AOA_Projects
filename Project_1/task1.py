@@ -8,20 +8,21 @@ Strategy 1 should be done in Theta(n) time.
 
 # TC : O(n)
 def count_houses_strategy1(schedule, days, houses):
-    painted_houses = {}
-    index = 0
+    painted_houses = []
+    house_index = 0
     for day in range(1, days + 1):
-        if index >= houses: break
-        [start, end] = schedule[index]
+        if house_index >= houses: break
+        [start, end] = schedule[house_index]
 
-        while index < len(schedule) - 1 and day > schedule[index][1]:
-            index += 1
-            [start, end] = schedule[index]
+        while house_index < len(schedule) - 1 and day > schedule[house_index][1]:
+            print("Index index can't paint {}".format(house_index))
+            house_index += 1
+            [start, end] = schedule[house_index]
 
         # Paint the house
         if start <= day <= end:
-            painted_houses[index] = start, end
-            index += 1
+            painted_houses.append([start, end, day, house_index])
+            house_index += 1
 
     return painted_houses
 

@@ -6,11 +6,10 @@ from heapq import heappush, heappop
 
 # TC : O(n + m log(m))
 def count_houses_strategy3(schedule, days, houses):
-    painted_houses = {}
+    painted_houses = []
     available_houses = []
 
     house_index = 0
-    index = 0
     for day in range(1, days + 1):
 
         # Paint houses available on the current day
@@ -22,10 +21,9 @@ def count_houses_strategy3(schedule, days, houses):
 
         # Paint the house with the latest end date
         if available_houses:
-            _, start, end, index1 = heappop(available_houses)
+            _, start, end, index = heappop(available_houses)
             if start <= day <= end:
-                painted_houses[index] = start, end, day, index1
-                index += 1
+                painted_houses.append([start, end, day, index])
 
     return painted_houses
 

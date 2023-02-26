@@ -6,11 +6,10 @@ import heapq
 
 # TC : O(n + m log(m))
 def count_houses_strategy4(schedule, days, houses):
-    painted_houses = {}
+    painted_houses = []
     available_houses = []
 
     house_index = 0
-    index = 0
     for day in range(1, days + 1):
 
         # Paint houses available on the current day
@@ -22,10 +21,9 @@ def count_houses_strategy4(schedule, days, houses):
 
         # Paint the house with the earliest end date
         while available_houses:
-            end, start, index1 = heapq.heappop(available_houses)
+            end, start, index = heapq.heappop(available_houses)
             if start <= day <= end:
-                painted_houses[index] = start, end, day, index1
-                index += 1
+                painted_houses.append([start, end, day, index])
                 break
 
     return painted_houses
