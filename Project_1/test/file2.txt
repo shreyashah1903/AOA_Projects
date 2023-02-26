@@ -20,13 +20,13 @@
 8 9
 10 11
 
-# Test case 5: Houses with overlap, but all days covered
+# Test case 5: Houses with overlap but all days covered
 10 3
 0 3
 1 4
 2 5
 
-# Test case 6: Houses with overlap, but not all days covered
+# Test case 6: Houses with overlap but not all days covered
 10 3
 0 3
 1 4
@@ -39,3 +39,66 @@
 4 6
 5 7
 8 10
+
+# Test case 8
+5 10
+1 5
+ 1 5
+ 1 5
+ 2 3
+ 2 3
+ 2 4
+ 2 5
+ 2 5
+ 5 5
+ 6 5
+
+# Test case 9
+15 9
+1 2
+ 1 4
+ 1 6
+ 5 8
+ 5 8
+ 6 10
+ 11 17
+ 13 19
+ 15 18
+
+# Test case 10
+15 14
+ 1 5
+ 2 8
+ 3 4
+ 3 4
+ 3 5
+ 4 6
+ 5 6
+ 5 8
+ 5 9
+ 6 7
+ 7 13
+ 11 16
+ 11 16
+ 14 15
+
+# Test case 11
+18 18
+1 2
+ 1 2
+ 1 5
+ 1 5
+ 1 6
+ 2 3
+ 2 6
+ 2 7
+ 3 4
+ 4 5
+ 5 9
+ 5 11
+ 6 8
+ 6 12
+ 8 12
+ 9 14
+12 15
+16 17

@@ -3,8 +3,9 @@ from task2 import *
 from task3 import *
 from task4 import *
 
+
 def test_strategies():
-    files = ["test/file1.txt", "test/file2.txt"]
+    files = ["test/file2.txt"]
     for filename in files:
         with open(filename, "r") as file:
             lines = file.readlines()
@@ -13,7 +14,7 @@ def test_strategies():
             for i in range(len(lines)):
                 index = 0
                 # check if line is a test case header
-                if lines[i].startswith("# Test case"):
+                if lines[i].startswith("# Test"):
 
                     # extract values for test case
                     n, m = map(int, lines[i + 1].split())
@@ -51,7 +52,11 @@ def test_strategies():
                     print("\nStrategy 4")
                     painted_houses = count_houses_strategy4(data, n, m)
                     print("Num of houses painted:", len(painted_houses))
-                    print("Houses painted:", painted_houses)
+
+                    for j in range(0, len(painted_houses)):
+                        start, end, day, index = painted_houses[j]
+                        print("Day {}, house {} painted with schedule {} {}".format(day, index, start, end))
+
                     print()
 
                     case += 1
