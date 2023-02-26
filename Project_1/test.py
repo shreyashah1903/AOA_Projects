@@ -2,7 +2,7 @@ from task1 import *
 from task2 import *
 from task3 import *
 from task4 import *
-
+from task5_bonus import *
 
 def test_strategies():
     files = ["test/file2.txt"]
@@ -57,6 +57,14 @@ def test_strategies():
 
                     print("\nStrategy 4")
                     painted_houses = count_houses_strategy4(data, n, m)
+                    print("Num of houses painted:", len(painted_houses))
+
+                    for j in range(len(painted_houses)):
+                        start, end, day, index = painted_houses[j]
+                        print("Day {}, house {} painted with schedule {} {}".format(day, index, start, end))
+
+                    print("\nStrategy 5 (Bonus)")
+                    painted_houses = count_houses_bonus_strategy(data, n, m)
                     print("Num of houses painted:", len(painted_houses))
 
                     for j in range(len(painted_houses)):
