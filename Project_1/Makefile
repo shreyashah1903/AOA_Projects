@@ -17,5 +17,5 @@ run3: task3.py
 run4: task4.py
 	$(PYTHON) task4.py
 
-run5: task1.py
-	$(PYTHON) task1.py
+run5: task5_bonus.py
+	$(PYTHON) task5_bonus.py

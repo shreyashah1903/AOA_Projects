@@ -3,6 +3,8 @@ Strategy 5 (Bonus)
 """
 from heapq import heappush, heappop
 
+from run_helper import fetch_input, print_houses
+
 
 # TC : O(m log(m))
 def count_houses_bonus_strategy(schedule, days, houses):
@@ -43,3 +45,8 @@ def count_houses_bonus_strategy(schedule, days, houses):
                 break
 
     return painted_houses
+
+
+n, m, schedule = fetch_input()
+painted = count_houses_bonus_strategy(schedule, n, m)
+print_houses(painted)
