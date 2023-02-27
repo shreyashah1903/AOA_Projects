@@ -17,7 +17,7 @@ def count_houses_strategy1(schedule, days, houses):
         [start, end] = schedule[house_index]
 
         # Skip house which can't be painted if current day > current house endDay
-        while house_index < len(schedule) - 1 and day > schedule[house_index][1]:
+        while house_index < houses - 1 and day > schedule[house_index][1]:
             house_index += 1
             [start, end] = schedule[house_index]
 

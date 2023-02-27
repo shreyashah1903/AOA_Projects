@@ -16,7 +16,7 @@ def count_houses_strategy2(schedule, days, houses):
     for day in range(1, days + 1):
 
         # Find houses available on the current day
-        while house_index < len(schedule) and schedule[house_index][0] <= day <= schedule[house_index][1]:
+        while house_index < houses and schedule[house_index][0] <= day <= schedule[house_index][1]:
             start, end = schedule[house_index]
             # Maintain maxheap of unpainted houses by start date
             heappush(available_houses, (-start, end, house_index))
