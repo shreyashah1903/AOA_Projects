@@ -23,11 +23,12 @@ def count_houses_strategy3(schedule, days, houses):
             house_index += 1
 
         # Paint the house with the shortest duration
-        if available_houses:
+        while available_houses:
             _, start, end, index = heappop(available_houses)
             # Paint house only if current day lies between house availability (start and end day)
             if start <= day <= end:
                 painted_houses.append([start, end, day, index])
+                break
 
     return painted_houses
 
