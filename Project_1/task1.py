@@ -4,6 +4,7 @@ that are available to be painted on that day, paint the house that started being
 the earliest.
 Strategy 1 should be done in Theta(n) time.
 """
+from run_helper import fetch_input, print_houses
 
 
 # TC : O(n)
@@ -11,11 +12,12 @@ def count_houses_strategy1(schedule, days, houses):
     painted_houses = []
     house_index = 0
     for day in range(1, days + 1):
-        if house_index >= houses: break
+        if house_index >= houses:
+            break
         [start, end] = schedule[house_index]
 
+        # Skip house which can't be painted if current day > current house endDay
         while house_index < len(schedule) - 1 and day > schedule[house_index][1]:
-            print("Index index can't paint {}".format(house_index))
             house_index += 1
             [start, end] = schedule[house_index]
 
@@ -26,10 +28,7 @@ def count_houses_strategy1(schedule, days, houses):
 
     return painted_houses
 
-# n, m = map(int, input().split())
-# schedule = []
-# for i in range(m):
-#   startTime, endTime = map(int, input().split())
-#   schedule.append([startTime, endTime])
-# noOfHouses = count_houses(schedule, n, m)
-# print(noOfHouses)
+
+n, m, schedule = fetch_input()
+painted = count_houses_strategy1(schedule, n, m)
+print_houses(painted)
