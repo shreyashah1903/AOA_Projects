@@ -7,7 +7,7 @@ Strategy 1 should be done in Theta(n) time.
 from run_helper import fetch_input, print_houses
 
 
-# TC : O(n)
+# TC : Theta(n)
 def count_houses_strategy1(schedule, days, houses):
     painted_houses = []
     house_index = 0

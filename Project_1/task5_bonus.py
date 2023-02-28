@@ -6,7 +6,7 @@ from heapq import heappush, heappop
 from run_helper import fetch_input, print_houses
 
 
-# TC : O(m log(m))
+# TC : Theta(m log(m))
 def count_houses_bonus_strategy(schedule, days, houses):
     painted_houses = []
     available_houses = []
