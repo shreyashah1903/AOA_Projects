@@ -17,10 +17,7 @@ def count_houses_bonus_strategy(schedule, days, houses):
     while house_index < houses or available_houses:
         if not available_houses:
             # If start day is set to less than 1, set day to 1. Else, set current day to house start day
-            if schedule[house_index][0] < 1:
-                day = 1
-            else:
-                day = schedule[house_index][0]
+            day = max(1, schedule[house_index][0])
 
         if day > days:
             break
@@ -36,13 +33,12 @@ def count_houses_bonus_strategy(schedule, days, houses):
         painted_houses.append([start, end, day, index])
         day += 1
 
-        while available_houses:
-            end, start, index = available_houses[0]
+        if day > days:
+            break
+
+        while available_houses and available_houses[0][0] < day:
             # Popping out houses which can't be painted if their end day is less than current day
-            if end < day:
-                heappop(available_houses)
-            else:
-                break
+            heappop(available_houses)
 
     return painted_houses
 

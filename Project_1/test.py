@@ -13,8 +13,9 @@ from task5_bonus import *
 N_values = [1000, 2000, 3000, 4000, 5000, 10000]
 
 
-def test_strategies():
-    files = ["test/testcases_for_n_" + str(x) + ".txt" for x in N_values]
+def test_strategies(isComparative):
+    if isComparative: files = ["test/testcases_for_n_" + str(x) + ".txt" for x in N_values]
+    else: files = ["test/file1.txt", "test/file2.txt"]
     for index, filename in enumerate(files):
         with open(filename, "r") as file:
             lines = file.readlines()
@@ -60,7 +61,7 @@ def test_strategies():
                     s1.append(len(painted_houses))
                     for j in range(len(painted_houses)):
                         start, end, day, index = painted_houses[j]
-                        print("Day {}, house {} painted with schedule {} {}".format(day, index, start, end))
+                        # print("Day {}, house {} painted with schedule {} {}".format(day, index, start, end))
 
                     print("\nStrategy 2")
                     painted_houses = count_houses_strategy2(data, n, m)
@@ -68,7 +69,7 @@ def test_strategies():
                     s2.append(len(painted_houses))
                     for j in range(len(painted_houses)):
                         start, end, day, index = painted_houses[j]
-                        print("Day {}, house {} painted with schedule {} {}".format(day, index, start, end))
+                        # print("Day {}, house {} painted with schedule {} {}".format(day, index, start, end))
 
                     print("\nStrategy 3")
                     painted_houses = count_houses_strategy3(data, n, m)
@@ -76,7 +77,7 @@ def test_strategies():
                     s3.append(len(painted_houses))
                     for j in range(len(painted_houses)):
                         start, end, day, index = painted_houses[j]
-                        print("Day {}, house {} painted with schedule {} {}".format(day, index, start, end))
+                        # print("Day {}, house {} painted with schedule {} {}".format(day, index, start, end))
 
                     print("\nStrategy 4")
                     painted_houses = count_houses_strategy4(data, n, m)
@@ -84,7 +85,7 @@ def test_strategies():
                     s4.append(len(painted_houses))
                     for j in range(len(painted_houses)):
                         start, end, day, index = painted_houses[j]
-                        print("Day {}, house {} painted with schedule {} {}".format(day, index, start, end))
+                        # print("Day {}, house {} painted with schedule {} {}".format(day, index, start, end))
 
                     print("\nStrategy 5 (Bonus)")
                     painted_houses = count_houses_bonus_strategy(data, n, m)
@@ -92,7 +93,7 @@ def test_strategies():
                     s5.append(len(painted_houses))
                     for j in range(len(painted_houses)):
                         start, end, day, index = painted_houses[j]
-                        print("Day {}, house {} painted with schedule {} {}".format(day, index, start, end))
+                        # print("Day {}, house {} painted with schedule {} {}".format(day, index, start, end))
 
                     print()
 
@@ -148,11 +149,6 @@ def plot_graph(n, ns, ms, s1, s2, s3, s4, s5):
     print(s4)
     print(s5)
 
-    # plt.plot(ns, s1, label="Strategy 1")
-    # plt.plot(ns, s2, label="Strategy 2")
-    # plt.plot(ns, s3, label="Strategy 3")
-    # plt.plot(ns, s4, label="Strategy 4")
-
     plt.plot(ms, s1, label="Strategy 1")
     plt.plot(ms, s2, label="Strategy 2")
     plt.plot(ms, s3, label="Strategy 3")
@@ -178,7 +174,7 @@ def comparative_study_bonus():
         ms = []
         s4 = []
         s5 = []
-        for m in [int(n / 8), int(n / 4), int(n / 2), n]:
+        for m in [int(n/16), int(n / 8), int(n / 4), int(n / 2)]:
             ms.append(m)
             schedule = generate_testcase(m, n, 6)
             schedule.sort(key=lambda x: (x[0], x[1]))
@@ -230,5 +226,5 @@ def plot_graph_running_time(n, ms, s4, s5):
 
 
 if __name__ == '__main__':
-    # test_strategies()
-    comparative_study_bonus()
+    test_strategies(True)
+    # comparative_study_bonus()
