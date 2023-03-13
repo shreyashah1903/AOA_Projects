@@ -3,8 +3,7 @@
 # indices of a square area where each plot enclosed requires a minimum of h trees to be
 # planted.
 
-# Task1: Design a Θ(m^3*n^3) time Brute Force algorithm for solving Problem1.
-# TODO: Need to find an algo this is similar to Task 2.
+# Task1: Design a Θ(m^2*n^2) time algorithm for solving Problem1.
 
 from run_helper import fetch_input
 
