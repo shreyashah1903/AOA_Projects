@@ -3,7 +3,7 @@ PYTHON=python3
 all: help
 
 help:
-	echo "Call make run# where # can be [1,5]."
+	echo "Call make run# where # can be [1,2,3,4,5A,5B,6,7A,7B]."
 
 run1: task1.py
 	$(PYTHON) task1.py
