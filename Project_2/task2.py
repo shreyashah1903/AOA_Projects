@@ -3,7 +3,7 @@
 # indices of a square area where each plot enclosed requires a minimum of h trees to be
 # planted.
 
-# Task1: Design a Θ(m^2*n^2) time algorithm for solving Problem1.
+# Task2: Design a Θ(m^2*n^2) time algorithm for solving Problem1.
 
 from run_helper import fetch_input
 

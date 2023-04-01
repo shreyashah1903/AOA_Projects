@@ -3,7 +3,7 @@
 # indices of a square area where each plot enclosed requires a minimum of h trees to be
 # planted.
 
-# Task1: Design a Θ(m*n) time with a dynamic programming algorithm for solving Problem1.
+# Task3: Design a Θ(m*n) time with a dynamic programming algorithm for solving Problem1.
 
 from run_helper import fetch_input
 
