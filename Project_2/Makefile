@@ -14,7 +14,7 @@ run2: task2.py
 run3: task3.py
 	$(PYTHON) task3.py
 
-run4: task4.py
+run4: task5B.py
 	$(PYTHON) task4.py
 
 run5A: task5A.py
