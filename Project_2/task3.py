@@ -10,7 +10,7 @@ from run_helper import fetch_input
 
 def find_square_area(m, n, h, matrix):
     x1, y1, x2, y2 = -1, -1, -1, -1
-    dp = [[0] * n + 1 for _ in m + 1]
+    dp = [[0] * (n + 1) for _ in range(m + 1)]
     maximum_size = 0
     for i in range(1, m + 1):
         for j in range(1, n + 1):
@@ -22,6 +22,8 @@ def find_square_area(m, n, h, matrix):
                     y1 = j - maximum_size + 1
                     x2 = i
                     y2 = j
+    print(dp)
+    print(maximum_size)
     return x1, y1, x2, y2
 
 
