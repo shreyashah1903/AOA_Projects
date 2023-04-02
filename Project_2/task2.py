@@ -4,7 +4,6 @@
 # planted.
 
 # Task2: Design a Θ(m^2*n^2) time algorithm for solving Problem1.
-
 from run_helper import fetch_input
 
 
@@ -25,7 +24,7 @@ def find_square_area(m, n, h, matrix):
 
                 if valid_area and square_size > maximum_size:
                     maximum_size = square_size
-                    x1, y1, x2, y2 = i+1, j+1, i+square_size, j+square_size
+                    x1, y1, x2, y2 = i + 1, j + 1, i + square_size, j + square_size
     return x1, y1, x2, y2
 
 
