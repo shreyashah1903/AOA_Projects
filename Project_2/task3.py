@@ -14,7 +14,7 @@ def find_square_area(m, n, h, matrix):
     maximum_size = 0
     for i in range(1, m + 1):
         for j in range(1, n + 1):
-            if matrix[i][j] >= h:
+            if matrix[i - 1][j - 1] >= h:
                 dp[i][j] = min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]) + 1
                 if dp[i][j] > maximum_size:
                     maximum_size = dp[i][j]
@@ -22,8 +22,7 @@ def find_square_area(m, n, h, matrix):
                     y1 = j - maximum_size + 1
                     x2 = i
                     y2 = j
-    print(dp)
-    print(maximum_size)
+
     return x1, y1, x2, y2
 
 
