@@ -24,18 +24,28 @@ def find_square_area(m, n, h, matrix, k):
             # if dp[i][j] > k: break
             t = min(i, j)
             print(i,j,t, "----")
-            for z in range(0, t):
-                x = z+1
-                ans = dp[i][j] + dp[i - x][j - x] - dp[i - x][j] - dp[i][j - x]
-                print(i-x, j-x, ans, x, i, j, matrix[i-1][j-1])
-                if ans <= k and z > maximum_size:
-                    maximum_size = z
-                    x1 = i - z
-                    y1 = j - z
+            for x in range(0, t):
+                ans = dp[i][j] + dp[i - x-1][j - x-1] - dp[i - x-1][j] - dp[i][j - x-1]
+                print(i-x, j-x, ans, k, x+1, maximum_size)
+                if ans <= k and x+1 > maximum_size:
+                    maximum_size = x+1
+                    x1 = i - x
+                    y1 = j - x
                     x2 = i
                     y2 = j
-    print(dp)
-    print(maximum_size)
+    # print(dp)
+    # s = [[str(e) for e in row] for row in matrix]
+    # lens = [max(map(len, col)) for col in zip(*s)]
+    # fmt = '\t'.join('{{:{}}}'.format(x) for x in lens)
+    # table = [fmt.format(*row) for row in s]
+    # print('\n'.join(table))
+    # print()
+    # s = [[str(e) for e in row] for row in dp]
+    # lens = [max(map(len, col)) for col in zip(*s)]
+    # fmt = '\t'.join('{{:{}}}'.format(x) for x in lens)
+    # table = [fmt.format(*row) for row in s]
+    # print('\n'.join(table))
+    # print(maximum_size)
     return x1, y1, x2, y2
 
 
