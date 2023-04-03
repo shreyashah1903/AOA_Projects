@@ -9,37 +9,38 @@ from run_helper import fetch_input
 
 
 def find_square_area(m, n, h, p):
-    memo = [[None] * n for _ in range(m)]
+    memo = [[None] * (n + 1) for _ in range(m + 1)]
     x1, y1, x2, y2 = -1, -1, -1, -1
+    maximum_size = 0
 
     def helper(i, j):
-        if i < 0 or j < 0:
-            return 0
+        nonlocal maximum_size, x1, y1, x2, y2
+
+        if i == 0 or j == 0:
+            memo[i][j] = 0
+            return memo[i][j]
 
         if memo[i][j] is not None:
             return memo[i][j]
 
-        if p[i][j] < h:
+        if p[i - 1][j - 1] < h:
             memo[i][j] = 0
-            return 0
+        else:
+            memo[i][j] = min(helper(i - 1, j), helper(i, j - 1), helper(i - 1, j - 1)) + 1
 
-        memo[i][j] = min(helper(i - 1, j), helper(i, j - 1), helper(i - 1, j - 1)) + 1
+        l = min(helper(i - 1, j), helper(i, j - 1), helper(i - 1, j - 1))
+        if l + 2 >= maximum_size:
+            maximum_size = l + 2
+            x1, y1 = i - maximum_size + 1, j - maximum_size + 1
+            x2, y2 = i, j
+
         return memo[i][j]
 
-    maximum_size = 0
-    for i in range(m):
-        for j in range(n):
-            square_size = helper(i, j)
-            if square_size > maximum_size:
-                maximum_size = square_size
-                x1 = i - maximum_size + 1
-                y1 = j - maximum_size + 1
-                x2 = i
-                y2 = j
-
+    helper(m, n)
     return x1, y1, x2, y2
 
 
 m, n, h, p = fetch_input()
+maximum_size = 0
 x1, y1, x2, y2 = find_square_area(m, n, h, p)
 print(x1, y1, x2, y2)
