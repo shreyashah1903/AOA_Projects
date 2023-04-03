@@ -48,6 +48,4 @@ m, n, h, p, k = fetch_input_p3()
 x1, y1, x2, y2 = find_square_area(m, n, h, p, k)
 print(x1, y1, x2, y2)
 
-from run_helper import fetch_input_p3
-
 
