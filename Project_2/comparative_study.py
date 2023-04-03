@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 input_dir = 'input'
-ip_sizes = [10 ** 2]
+ip_sizes = [10, 25, 50, 100]
 # ip_sizes = [10**3, 10**4, 10**5, 10**6, 10**7, 10**8]
 
 file_list_1 = ['task1', 'task2', 'task3']
@@ -24,6 +24,7 @@ def helper_function(filename, ip_sizes):
     print("helper file:", filename)
     times = []
     for sz in ip_sizes:
+        print("Size:", sz)
         m, n = sz, int(sz + sz / 100)
         matrix = np.random.randint(20, size=(m, n))
         h, k = 10, 15
@@ -45,7 +46,6 @@ def helper_function(filename, ip_sizes):
 
 
 def convert_input(m, n, h, k, matrix, is_prob3=False):
-    # print("convert_input is_prob3:", is_prob3)
     if is_prob3:
         input_str = f"{m} {n} {h} {k}\n"
     else:
@@ -58,14 +58,6 @@ def convert_input(m, n, h, k, matrix, is_prob3=False):
     input_bytes = input_str.encode('utf-8')
     return input_bytes
 
-
-# def get_function(module_name):
-#     function_name = "find_square_area"
-#     print(module_name)
-#     module = import_module(module_name)
-#     print(module)
-#     function = getattr(module, function_name)
-#     return function
 
 def calculate_time_taken(file_list):
     all_times = {}
@@ -93,12 +85,7 @@ def generate_plots(times, files):
     plt.legend()
     plt.show()
 
-
-# t = calculate_time_taken(file_list_1)
-
-
 if __name__ == '__main__':
-    print("Heya")
     all_times = calculate_time_taken(file_list_1)
     generate_plots(all_times, file_list_1)
 
