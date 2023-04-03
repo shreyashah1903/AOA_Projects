@@ -25,14 +25,17 @@ def find_square_area(m, n, h, matrix):
 
             for x in range(0, min(i, j)):
                 ans = dp[i][j] + dp[i - x-1][j - x-1] - dp[i - x-1][j] - dp[i][j - x-1]
-                # print(i-x, j-x, x+1, maximum_size)
-                if ans <= 4:
+
+                if ans <= 4 and x+1 > maximum_size:
+                    # print(i, j, x, maximum_size)
                     corner_points = [(i, j), (i - x, j - x), (i - x, j), (i, j - x)]
                     count = 0
                     for a, b in corner_points:
+                        # print("Cpoint", a, b)
                         if matrix[a - 1][b - 1] < h:
                             count += 1
-                    if count == ans and x+1 > maximum_size:
+                    if count == ans:
+                        # print("Yuhuu")
                         maximum_size = x + 1
                         x1 = i - x
                         y1 = j - x
