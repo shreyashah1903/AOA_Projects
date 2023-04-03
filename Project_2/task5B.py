@@ -10,7 +10,6 @@ from run_helper import fetch_input
 def find_square_area(m, n, h, matrix):
     x1, y1, x2, y2 = -1, -1, -1, -1
     dp = [[0] * (n + 1) for _ in range(m + 1)]
-    dp2 = [[0] * (n + 1) for _ in range(m + 1)]
     maximum_size = 0
     for i in range(1, m + 1):
         for j in range(1, n + 1):
@@ -23,28 +22,6 @@ def find_square_area(m, n, h, matrix):
                 x1, y1 = i - maximum_size + 1, j - maximum_size + 1
                 x2, y2 = i, j
 
-    # for i in range(1, m + 1):
-    #     for j in range(1, n + 1):
-    #         l = min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1])
-    #         if l + 2 >= maximum_size:
-    #             maximum_size = l + 2
-    #             x1, y1 = i - maximum_size + 1, j - maximum_size + 1
-    #             x2, y2 = i, j
-                # print(maximum_size, x1, y1, x2, y2, matrix[i - 1][j - 1])
-
-    # print(m, n, h)
-    # s = [[str(e) for e in row] for row in matrix]
-    # lens = [max(map(len, col)) for col in zip(*s)]
-    # fmt = '\t'.join('{{:{}}}'.format(x) for x in lens)
-    # table = [fmt.format(*row) for row in s]
-    # print('\n'.join(table))
-    # print()
-    # s = [[str(e) for e in row] for row in dp]
-    # lens = [max(map(len, col)) for col in zip(*s)]
-    # fmt = '\t'.join('{{:{}}}'.format(x) for x in lens)
-    # table = [fmt.format(*row) for row in s]
-    # print('\n'.join(table))
-    # print(maximum_size)
     return x1, y1, x2, y2
 
 

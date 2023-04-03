@@ -27,7 +27,6 @@ def find_square_area(m, n, h, matrix):
 
                     if count == 0 and size > maximum_size:
                         maximum_size = size
-                        # print(i, j, s, t, small_count)
                         x1, y1 = i + 1, j + 1
                         x2, y2 = s + 1, t + 1
     return x1, y1, x2, y2

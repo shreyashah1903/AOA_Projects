@@ -10,13 +10,11 @@ from run_helper import fetch_input
 
 
 def find_square_area(m, n, h, matrix):
-    # nonlocal maximum_size, x1, y1, x2, y2
     x1, y1, x2, y2 = -1, -1, -1, -1
     dp = [[0] * (n + 1) for _ in range(m + 1)]
     maximum_size = 0
     for i in range(1, m + 1):
         for j in range(1, n + 1):
-            # print(i, j)
             if matrix[i - 1][j - 1] < h:
                 temp = 1
             else:
@@ -27,15 +25,12 @@ def find_square_area(m, n, h, matrix):
                 ans = dp[i][j] + dp[i - x-1][j - x-1] - dp[i - x-1][j] - dp[i][j - x-1]
 
                 if ans <= 4 and x+1 > maximum_size:
-                    # print(i, j, x, maximum_size)
                     corner_points = [(i, j), (i - x, j - x), (i - x, j), (i, j - x)]
                     count = 0
                     for a, b in corner_points:
-                        # print("Cpoint", a, b)
                         if matrix[a - 1][b - 1] < h:
                             count += 1
                     if count == ans:
-                        # print("Yuhuu")
                         maximum_size = x + 1
                         x1 = i - x
                         y1 = j - x

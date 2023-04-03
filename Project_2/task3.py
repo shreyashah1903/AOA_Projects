@@ -22,13 +22,6 @@ def find_square_area(m, n, h, matrix):
                     y1 = j - maximum_size + 1
                     x2 = i
                     y2 = j
-    # print(dp)
-    # s = [[str(e) for e in row] for row in dp]
-    # lens = [max(map(len, col)) for col in zip(*s)]
-    # fmt = '\t'.join('{{:{}}}'.format(x) for x in lens)
-    # table = [fmt.format(*row) for row in s]
-    # print('\n'.join(table))
-    # print(maximum_size)
     return x1, y1, x2, y2
 
 
