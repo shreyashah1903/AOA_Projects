@@ -10,15 +10,14 @@ gen_dir = 'gen'
 input_files = os.listdir(input_dir)
 
 tasks = {'p1': ['../task1.py', '../task2.py', '../task3.py'], 'p2': ['../task4.py', '../task5A.py', '../task5B.py'],
-         'p3': ['../task7A.py', '../task7B.py']}
+         'p3': ['../task6.py', '../task7A.py', '../task7B.py']}
 
 
 def checkFiles():
     cleanup()
+    total_count = 0
+    fail_count = 0
     for filename in input_files:
-        total_count = 0
-        fail_count = 0
-
         # Construct the input and output file paths
         input_path = os.path.join(input_dir, filename)
         output_path = os.path.join(output_dir, filename)
@@ -48,13 +47,14 @@ def checkFiles():
                     print(f'{filename} - {taskFile}: FAIL')
                     fail_count += 1
 
-        print(f'{fail_count} failed out of {total_count}')
+    print(f'{fail_count} failed out of {total_count}')
 
 
 def cleanup():
     dir = 'gen'
     for f in os.listdir(dir):
         os.remove(os.path.join(dir, f))
+
 
 if __name__ == '__main__':
     checkFiles()
