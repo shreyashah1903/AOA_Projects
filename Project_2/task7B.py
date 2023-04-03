@@ -20,8 +20,8 @@ def find_square_area(m, n, h, matrix, k):
             else:
                 temp = 0
             dp[i][j] = dp[i - 1][j] + dp[i][j - 1] - dp[i - 1][j - 1] + temp
-            t = min(i, j)
-            for x in range(0, t):
+            x = maximum_size
+            if i - x - 1 >= 0 and j - x - 1 >= 0:
                 ans = dp[i][j] + dp[i - x-1][j - x-1] - dp[i - x-1][j] - dp[i][j - x-1]
                 if ans <= k and x+1 > maximum_size:
                     maximum_size = x+1

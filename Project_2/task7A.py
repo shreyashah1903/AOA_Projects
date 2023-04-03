@@ -30,7 +30,8 @@ def find_square_area(m, n, h, p, k):
 
         memo[i][j] = helper(i - 1, j) + helper(i, j - 1) - helper(i - 1, j - 1) + temp
 
-        for x in range(0, min(i, j)):
+        x = maximum_size
+        if i - x - 1 >= 0 and j - x - 1 >= 0:
             ans = memo[i][j] + helper(i - x - 1, j - x - 1) - helper(i - x - 1, j) - helper(i, j - x - 1)
 
             if ans <= k and x + 1 > maximum_size:
